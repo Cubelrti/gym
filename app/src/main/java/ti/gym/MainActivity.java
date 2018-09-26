@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -63,6 +64,18 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     }
     public void login(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                String returnedResult = data.getData().toString();
+                ((TextView) findViewById(R.id.textView3)).setText(returnedResult);
+                ((TextView) findViewById(R.id.textView)).setText("欢迎您，尊敬的会员");
+
+                // OR
+                // String returnedResult = data.getDataString();
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 package ti.gym;
 import android.app.ProgressDialog;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -61,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
                 R.style.Theme_AppCompat_Light_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Authenticating...");
+        progressDialog.setMessage("正在登录...");
         progressDialog.show();
 
         String email = _emailText.getText().toString();
@@ -101,7 +102,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
-        
+        Toast.makeText(getBaseContext(), "登录成功", Toast.LENGTH_LONG).show();
+        Intent data = new Intent();
+        data.setData(Uri.parse(_emailText.getText().toString()));
+        setResult(RESULT_OK, data);
         finish();
     }
 
