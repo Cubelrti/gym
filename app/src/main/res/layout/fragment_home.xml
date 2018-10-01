@@ -47,6 +47,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorGrass"
                     android:clickable="true"
+                    android:onClick="createCourse"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
@@ -80,6 +81,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorBlueJeans"
                     android:clickable="true"
+                    android:onClick="createCourse"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
@@ -111,6 +113,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorLavander"
                     android:clickable="true"
+                    android:onClick="createCourse"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
@@ -148,6 +151,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorMint"
                     android:clickable="true"
+                    android:onClick="createCourse"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
@@ -179,6 +183,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorAqua"
                     android:clickable="true"
+                    android:onClick="createCourse"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
@@ -211,6 +216,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorPinkRose"
                     android:clickable="true"
+                    android:onClick="createCourse"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
@@ -251,6 +257,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorBitterSweet"
                     android:clickable="true"
+                    android:onClick="createCourse"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
@@ -282,6 +289,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorFlower"
                     android:clickable="true"
+                    android:onClick="createCourse"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
@@ -313,6 +321,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorGrapeFruit"
                     android:clickable="true"
+                    android:onClick="createCourse"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 

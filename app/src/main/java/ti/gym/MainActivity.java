@@ -4,11 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener{
 
@@ -56,6 +60,13 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     public void login(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivityForResult(intent, 1);
+    }
+    public void createCourse(View view) {
+        Intent intent = new Intent(this, AddActivity.class);
+        // 获取点击的按钮
+        TextView text = (TextView)((LinearLayout) view).getChildAt(1);
+        intent.putExtra("name", text.getText());
+        startActivity(intent);
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
