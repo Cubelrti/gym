@@ -100,14 +100,15 @@
                 android:orientation="vertical">
 
                 <android.support.constraint.ConstraintLayout
-                    android:id="@+id/cardView"
+                    android:id="@+id/cardViewMessage"
                     android:layout_width="match_parent"
                     android:layout_height="69dp"
                     android:clickable="true"
+                    android:onClick="messages"
                     android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:id="@+id/imageView2"
+                        android:id="@+id/imageViewMessage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
@@ -119,25 +120,26 @@
                         tools:src="@drawable/ic_announcement_black_24dp" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/textViewMessage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:text="我的消息"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewMessage"
                         app:layout_constraintTop_toTopOf="parent" />
                 </android.support.constraint.ConstraintLayout>
 
                 <android.support.constraint.ConstraintLayout
-                    android:id="@+id/cardView"
+                    android:id="@+id/cardViewFav"
                     android:layout_width="match_parent"
                     android:layout_height="69dp"
                     android:clickable="true"
+                    android:onClick="favorites"
                     android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:id="@+id/imageView2"
+                        android:id="@+id/imageViewFav"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
@@ -149,13 +151,13 @@
                         tools:src="@drawable/ic_favorite_border_black_24dp" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/textViewFav"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:text="我的收藏"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFav"
                         app:layout_constraintTop_toTopOf="parent" />
                 </android.support.constraint.ConstraintLayout>
 
@@ -164,6 +166,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="69dp"
                     android:clickable="true"
+                    android:onClick="wallet"
                     android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView

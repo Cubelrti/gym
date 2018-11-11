@@ -18,19 +18,18 @@ import io.swagger.client.ApiException;
 import io.swagger.client.api.AuthApi;
 import io.swagger.client.model.User;
 
-public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "LoginActivity";
+public class RegisterActivity extends AppCompatActivity {
+    private static final String TAG = "RegisterActivity";
     private static final int REQUEST_SIGNUP = 0;
 
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_login) Button _loginButton;
-    @BindView(R.id.link_signup) TextView _signupLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
 
         _loginButton.setOnClickListener(new View.OnClickListener() {
@@ -41,15 +40,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        _signupLink.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivityForResult(intent, REQUEST_SIGNUP);
-            }
-        });
     }
 
     public void login() {
@@ -62,10 +52,10 @@ public class LoginActivity extends AppCompatActivity {
 
         _loginButton.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
+        final ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this,
                 R.style.Theme_AppCompat_Light_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("正在登录...");
+        progressDialog.setMessage("正在注册...");
         progressDialog.show();
 
         String email = _emailText.getText().toString();
@@ -78,8 +68,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    apiInstance.login(body);
-                    LoginActivity.this.runOnUiThread(new Runnable() {
+                    apiInstance.register(body);
+                    RegisterActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             onLoginSuccess();
@@ -88,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     });
 
                 } catch (final ApiException e) {
-                    LoginActivity.this.runOnUiThread(new Runnable() {
+                    RegisterActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             onLoginFailed();
@@ -102,9 +92,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         thread.start();
-
-        // TODO: Implement your own authentication logic here.
-
     }
 
 
@@ -127,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
-        Toast.makeText(getBaseContext(), "登录成功", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "注册成功", Toast.LENGTH_LONG).show();
         Intent data = new Intent();
         data.setData(Uri.parse(_emailText.getText().toString()));
         setResult(RESULT_OK, data);
@@ -135,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "登录失败", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "PersonalFragment failed", Toast.LENGTH_LONG).show();
         _loginButton.setEnabled(true);
     }
 
@@ -160,10 +147,5 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return valid;
-    }
-
-    public void goRegister(View view) {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivityForResult(intent, 1);
     }
 }

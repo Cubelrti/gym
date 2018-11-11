@@ -11,12 +11,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener{
+import ti.gym.dummy.DummyContent;
 
-    String username;
+public class MainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener, ItemFragment.OnListFragmentInteractionListener {
+
+    public static String username;
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
@@ -61,6 +64,19 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         Intent intent = new Intent(this, LoginActivity.class);
         startActivityForResult(intent, 1);
     }
+
+    public void messages(View view) {
+        Toast.makeText(getBaseContext(), "你还没有消息", Toast.LENGTH_SHORT).show();
+    }
+
+    public void favorites(View view) {
+        Toast.makeText(getBaseContext(), "你还没有收藏", Toast.LENGTH_SHORT).show();
+    }
+
+    public void wallet(View view) {
+        Toast.makeText(getBaseContext(), "你还没有钱包", Toast.LENGTH_SHORT).show();
+    }
+
     public void createCourse(View view) {
         Intent intent = new Intent(this, AddActivity.class);
         // 获取点击的按钮
@@ -73,9 +89,15 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             if (resultCode == RESULT_OK) {
                 username = data.getData().toString();
                 ((TextView)findViewById(R.id.textView3)).setText(username);
+                ((TextView)findViewById(R.id.textView)).setText("欢迎您，尊敬的用户。");
                 // OR
                 // String returnedResult = data.getDataString();
             }
         }
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
     }
 }

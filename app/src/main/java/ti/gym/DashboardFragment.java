@@ -8,6 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
+import io.swagger.client.ApiException;
+import io.swagger.client.api.AuthApi;
+import io.swagger.client.api.PrivateApi;
+import io.swagger.client.model.Sport;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,7 +71,28 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        final View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        if (MainActivity.username != null && !MainActivity.username.isEmpty()) {
+            // 获取一下列表
+//            Thread t = new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    PrivateApi apiInstance = new PrivateApi();
+//                    try {
+//                        List<Sport> result = apiInstance.getSport();
+//                        Fragment f = new ;
+//                        System.out.println(result);
+//                    } catch (ApiException e) {
+//                        System.err.println("Exception when calling PrivateApi#getSport");
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
+
+        }
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
