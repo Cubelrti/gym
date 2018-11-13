@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import io.swagger.client.ApiException;
+import io.swagger.client.api.PrivateApi;
+import io.swagger.client.model.Sport;
 import ti.gym.dummy.DummyContent;
 import ti.gym.dummy.DummyContent.DummyItem;
 
@@ -63,13 +66,32 @@ public class ItemFragment extends Fragment {
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            final RecyclerView recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            final PrivateApi apiInstance = new PrivateApi();
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        final List<Sport> foo = apiInstance.getSport().getData();
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                recyclerView.setAdapter(new MyItemRecyclerViewAdapter(foo, mListener));
+                            }
+                        });
+                    } catch (final ApiException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            thread.start();
         }
         return view;
     }
@@ -104,6 +126,6 @@ public class ItemFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Sport item);
     }
 }

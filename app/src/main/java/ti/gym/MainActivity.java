@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import io.swagger.client.model.Sport;
 import ti.gym.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener, ItemFragment.OnListFragmentInteractionListener {
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(Sport item) {
 
     }
 }

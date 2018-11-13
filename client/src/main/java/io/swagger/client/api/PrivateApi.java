@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.Sport;
+import io.swagger.client.model.SportCollection;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -232,23 +233,23 @@ public class PrivateApi {
     /**
      * get sports list.
      * 
-     * @return List&lt;Sport&gt;
+     * @return SportCollection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Sport> getSport() throws ApiException {
-        ApiResponse<List<Sport>> resp = getSportWithHttpInfo();
+    public SportCollection getSport() throws ApiException {
+        ApiResponse<SportCollection> resp = getSportWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * get sports list.
      * 
-     * @return ApiResponse&lt;List&lt;Sport&gt;&gt;
+     * @return ApiResponse&lt;SportCollection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Sport>> getSportWithHttpInfo() throws ApiException {
+    public ApiResponse<SportCollection> getSportWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getSportValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<Sport>>(){}.getType();
+        Type localVarReturnType = new TypeToken<SportCollection>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -259,7 +260,7 @@ public class PrivateApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSportAsync(final ApiCallback<List<Sport>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSportAsync(final ApiCallback<SportCollection> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -281,7 +282,7 @@ public class PrivateApi {
         }
 
         com.squareup.okhttp.Call call = getSportValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Sport>>(){}.getType();
+        Type localVarReturnType = new TypeToken<SportCollection>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

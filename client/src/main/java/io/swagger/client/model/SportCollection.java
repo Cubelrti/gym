@@ -21,65 +21,32 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ResponseErrorCodes;
-import io.swagger.client.model.ResponseStatuses;
+import io.swagger.client.model.Sport;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * ErrorResponse
+ * SportCollection
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-13T23:40:50.357+08:00")
-public class ErrorResponse {
-  @SerializedName("status")
-  private ResponseStatuses status = null;
-
-  @SerializedName("code")
-  private ResponseErrorCodes code = null;
-
+public class SportCollection {
   @SerializedName("data")
-  private Object data = null;
+  private List<Sport> data = null;
 
   @SerializedName("message")
   private String message = null;
 
-  public ErrorResponse status(ResponseStatuses status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public ResponseStatuses getStatus() {
-    return status;
-  }
-
-  public void setStatus(ResponseStatuses status) {
-    this.status = status;
-  }
-
-  public ErrorResponse code(ResponseErrorCodes code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Get code
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public ResponseErrorCodes getCode() {
-    return code;
-  }
-
-  public void setCode(ResponseErrorCodes code) {
-    this.code = code;
-  }
-
-  public ErrorResponse data(Object data) {
+  public SportCollection data(List<Sport> data) {
     this.data = data;
+    return this;
+  }
+
+  public SportCollection addDataItem(Sport dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<Sport>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
@@ -88,15 +55,15 @@ public class ErrorResponse {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public Object getData() {
+  public List<Sport> getData() {
     return data;
   }
 
-  public void setData(Object data) {
+  public void setData(List<Sport> data) {
     this.data = data;
   }
 
-  public ErrorResponse message(String message) {
+  public SportCollection message(String message) {
     this.message = message;
     return this;
   }
@@ -105,7 +72,7 @@ public class ErrorResponse {
    * Get message
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getMessage() {
     return message;
   }
@@ -123,26 +90,22 @@ public class ErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.status, errorResponse.status) &&
-        Objects.equals(this.code, errorResponse.code) &&
-        Objects.equals(this.data, errorResponse.data) &&
-        Objects.equals(this.message, errorResponse.message);
+    SportCollection sportCollection = (SportCollection) o;
+    return Objects.equals(this.data, sportCollection.data) &&
+        Objects.equals(this.message, sportCollection.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, code, data, message);
+    return Objects.hash(data, message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponse {\n");
+    sb.append("class SportCollection {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
