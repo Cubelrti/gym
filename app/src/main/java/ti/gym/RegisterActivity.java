@@ -122,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "PersonalFragment failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "用户名或密码错误", Toast.LENGTH_LONG).show();
         _loginButton.setEnabled(true);
     }
 
