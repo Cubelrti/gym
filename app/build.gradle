@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "ti.gym.online"
+        applicationId "ti.gym"
         minSdkVersion 24
         targetSdkVersion 27
         versionCode 1
@@ -11,6 +11,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -41,4 +46,9 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation project(':client')
     implementation project(path: ':client')
+    // https://mvnrepository.com/artifact/com.dou361.ijkplayer/jjdxm-ijkplayer
+    implementation('com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.6') {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
+
 }

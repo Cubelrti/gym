@@ -7,13 +7,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dou361.ijkplayer.listener.OnPlayerBackListener;
 import com.dou361.ijkplayer.widget.PlayStateParams;
 import com.dou361.ijkplayer.widget.PlayerView;
 
-public class PlayerActivity extends Activity {
+public class PlayerActivity extends AppCompatActivity {
 
     private PlayerView player;
     private Context mContext;
@@ -25,20 +27,14 @@ public class PlayerActivity extends Activity {
         this.mContext = this;
         rootView = getLayoutInflater().from(this).inflate(R.layout.simple_player_view_player, null);
         setContentView(rootView);
-        String url = "http://183.6.245.249/v.cctv.com/flash/mp4video6/TMS/2011/01/05/cf752b1c12ce452b3040cab2f90bc265_h264818000nero_aac32-1.mp4";
+        String url = "http://9890.vod.myqcloud.com/9890_9c1fa3e2aea011e59fc841df10c92278.f20.mp4";
+        View ss = findViewById(R.id.app_video_box);
         player = new PlayerView(this, rootView)
                 .setTitle("什么")
                 .setScaleType(PlayStateParams.fitparent)
-                .forbidTouch(false)
                 .hideMenu(true)
+                .forbidTouch(false)
                 .setPlaySource(url)
-                .setPlayerBackListener(new OnPlayerBackListener() {
-                    @Override
-                    public void onPlayerBack() {
-                        //这里可以简单播放器点击返回键
-                        finish();
-                    }
-                })
                 .startPlay();
     }
 
