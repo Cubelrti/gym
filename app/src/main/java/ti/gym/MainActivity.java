@@ -78,6 +78,11 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         Toast.makeText(getBaseContext(), "你还没有钱包", Toast.LENGTH_SHORT).show();
     }
 
+    public void playVideo(View view) {
+        Intent intent = new Intent(this, PlayerActivity.class);
+        startActivity(intent);
+    }
+
     public void createCourse(View view) {
         Intent intent = new Intent(this, AddActivity.class);
         // 获取点击的按钮
