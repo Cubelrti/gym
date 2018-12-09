@@ -1,6 +1,7 @@
 package ti.gym;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -80,6 +81,12 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
 
     public void playVideo(View view) {
         Intent intent = new Intent(this, PlayerActivity.class);
+        startActivity(intent);
+    }
+
+    public void sendMessage(View view) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("smsto:" + Uri.encode("18998773924")));
         startActivity(intent);
     }
 

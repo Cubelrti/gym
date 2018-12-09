@@ -78,6 +78,9 @@ public class ItemFragment extends Fragment {
                 public void run() {
                     try {
                         final List<Sport> foo = apiInstance.getSport().getData();
+                        if (getActivity() == null) {
+                            return;
+                        }
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
